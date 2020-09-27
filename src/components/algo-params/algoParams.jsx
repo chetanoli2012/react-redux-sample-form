@@ -45,7 +45,7 @@ function AlgoParams(props) {
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
                       </RadioGroup>
-                      <Tooltip title="Info" aria-label="info">
+                      <Tooltip title="Hyperparameter tuning" aria-label="info">
                         <InfoRounded></InfoRounded>
                       </Tooltip>
                     </div>
@@ -63,7 +63,7 @@ function AlgoParams(props) {
                         <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
                       </RadioGroup>
-                      <Tooltip title="Info" aria-label="info">
+                      <Tooltip title="K Fold Flag" aria-label="info">
                         <InfoRounded></InfoRounded>
                       </Tooltip>
                     </div>
@@ -82,7 +82,7 @@ function AlgoParams(props) {
                       </MenuItem>
                       <MenuItem value={"trainTestRandomSplitType0"}>Train Test Random Split Type 0</MenuItem>
                     </Select>
-                    <Tooltip title="Info" aria-label="info">
+                    <Tooltip title="Train Test Random Split Type" aria-label="info">
                       <InfoRounded></InfoRounded>
                     </Tooltip>
                   </FormControl>
@@ -96,7 +96,7 @@ function AlgoParams(props) {
                           dispatchToTheStore(values);
                         }}
                       />
-                      <Tooltip title="Info" aria-label="info">
+                      <Tooltip title="Training Data Percentage" aria-label="info">
                         <InfoRounded></InfoRounded>
                       </Tooltip>
                     </div>
@@ -111,7 +111,7 @@ function AlgoParams(props) {
                           dispatchToTheStore(values);
                         }}
                       />
-                      <Tooltip title="Info" aria-label="info">
+                      <Tooltip title="Test Data Percentage" aria-label="info">
                         <InfoRounded></InfoRounded>
                       </Tooltip>
                     </div>
@@ -125,7 +125,7 @@ function AlgoParams(props) {
                         onBlur={() => {
                           dispatchToTheStore(values);
                         }} />
-                      <Tooltip title="Info" aria-label="info">
+                      <Tooltip title="Maximum Depth of Tree" aria-label="info">
                         <InfoRounded></InfoRounded>
                       </Tooltip>
                     </div>
@@ -140,7 +140,7 @@ function AlgoParams(props) {
                           dispatchToTheStore(values);
                         }}
                       />
-                      <Tooltip title="Info" aria-label="info">
+                      <Tooltip title="Maximum Number of Bins" aria-label="info">
                         <InfoRounded></InfoRounded>
                       </Tooltip>
                     </div>
