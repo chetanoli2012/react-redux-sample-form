@@ -2,12 +2,14 @@ import React from 'react'
 import { Card, CardHeader, CardContent, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField, Tooltip } from '@material-ui/core'
 import { InfoRounded } from '@material-ui/icons'
 import { Formik } from 'formik'
+import { connect } from "react-redux"
+import * as form from "../../store/ducks/formData.duck"
 
-function InputParams() {
+function InputParams(props) {
 
 
   const dispatchToTheStore = (values) => {
-    console.log('Here we go!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', values);
+    props.loadInputParamsData(values);
   }
 
   return (
@@ -17,17 +19,18 @@ function InputParams() {
         <Formik
           initialValues={{
             inputParams: {
-              labelColumn: undefined,
-              autoCatColumn: undefined,
-              categoricalColumns: undefined
+              labelColumn: props?.inputParams?.labelColumn || undefined,
+              autoCatColumn: props?.inputParams?.autoCatColumn || undefined,
+              categoricalColumns: props?.inputParams?.categoricalColumns || undefined
             }
+  
           }}
         >
           {
             ({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, setFieldValue }) =>
               (
                 <>
-                  {console.log(values)}
+                  {console.log('fuck props', props, '\n values', values)}
                   <FormControl fullWidth={true} margin="dense" className="form--wrapper">
                     <TextField label="Index of Label Column" className="field--input" name="inputParams.labelColumn"
                       value={values.inputParams.labelColumn} onChange={handleChange}
@@ -43,6 +46,7 @@ function InputParams() {
                     <FormLabel className="text--left">Automatic Cat. Column Flag</FormLabel>
                     <div className='mini--wrapper'>
                       <RadioGroup row aria-label="auto-cat-column" className="field--input"
+                      value={values.inputParams.autoCatColumn}
                         name="inputParams.autoCatColumn" onChange={handleChange}
                         onBlur={() => {
                           dispatchToTheStore(values);
@@ -77,4 +81,11 @@ function InputParams() {
   )
 }
 
-export default InputParams
+const mapStateToProps = state => ({
+  inputParams: state.formData && state.formData.inputParams
+});
+
+export default connect(
+  mapStateToProps,
+  form.actions
+)(InputParams)
