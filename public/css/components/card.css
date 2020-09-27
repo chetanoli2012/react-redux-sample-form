@@ -1,0 +1,21 @@
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2vh 0;
+}
+
+.card-wrapper {
+  flex: 1;
+  margin: 1vh 2vw;
+}
+
+.card--header {
+  color: white;
+  text-transform: capitalize;
+  text-align: left;
+  background: #000428;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #000428, #004e92);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #000428, #004e92); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
